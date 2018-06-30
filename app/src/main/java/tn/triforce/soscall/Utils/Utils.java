@@ -54,7 +54,7 @@ public class Utils {
         arrayListFrance.add(new DataModel(R.string.FR_SDF, R.drawable.ic_sos, R.color.sos6, "115"));
         arrayListFrance.add(new DataModel(R.string.CHILDREN, R.drawable.ic_sos, R.color.sos7, "119"));
 
-        //USA Canada Mexico
+        //USA Canada MEXICO
         ArrayList<DataModel> arrayListUSA_CA_MX = new ArrayList<>();
         arrayListUSA_CA_MX.add(new DataModel(R.string.rescue, R.drawable.ic_police, R.color.sos4, "911"));
 
@@ -63,12 +63,12 @@ public class Utils {
         arrayListSouth_Africa.add(new DataModel(R.string.protectionCivile, R.drawable.ic_firetruck, R.color.sos4, "999"));
         arrayListSouth_Africa.add(new DataModel(R.string.rescue, R.drawable.ic_police, R.color.sos3, "10111"));
 
-        //Deustch
+        //DEUSTCH
         ArrayList<DataModel> arrayListDeustch = new ArrayList<>();
         arrayListDeustch.add(new DataModel(R.string.rescue, R.drawable.ic_police, R.color.sos3, "110"));
         arrayListDeustch.add(new DataModel(R.string.protectionCivile, R.drawable.ic_firetruck, R.color.sos4, "112"));
 
-        //Italy
+        //ITALY
         ArrayList<DataModel> arrayListItaly = new ArrayList<>();
         arrayListItaly.add(new DataModel(R.string.IT_rifleman, R.drawable.ic_guard, R.color.sos2, "112"));
         arrayListItaly.add(new DataModel(R.string.rescue, R.drawable.ic_police, R.color.sos3, "113"));
@@ -76,11 +76,20 @@ public class Utils {
         arrayListItaly.add(new DataModel(R.string.protectionCivile, R.drawable.ic_firetruck, R.color.sos4, "115"));
         arrayListItaly.add(new DataModel(R.string.samu, R.drawable.ic_samu, R.color.sos1, "118"));
 
-        //Turkey
+        //TURKEY
         ArrayList<DataModel> arrayListTurkey = new ArrayList<>();
         arrayListTurkey.add(new DataModel(R.string.samu, R.drawable.ic_samu, R.color.sos1, "110"));
         arrayListTurkey.add(new DataModel(R.string.protectionCivile, R.drawable.ic_firetruck, R.color.sos4, "112"));
         arrayListTurkey.add(new DataModel(R.string.rescue, R.drawable.ic_police, R.color.sos3, "155"));
+
+        //PORTUGAL
+        ArrayList<DataModel> arrayListPortugal = new ArrayList<>();
+        arrayListPortugal.add(new DataModel(R.string.rescue, R.drawable.ic_police, R.color.sos1, "112"));
+        arrayListPortugal.add(new DataModel(R.string.PT_FOREST_FIRE, R.drawable.ic_firetruck, R.color.sos4, "117"));
+        arrayListPortugal.add(new DataModel(R.string.samu, R.drawable.ic_samu, R.color.sos2, "808 242424"));
+        arrayListPortugal.add(new DataModel(R.string.PT_HELP, R.drawable.ic_sos, R.color.sos5, "118"));
+        arrayListPortugal.add(new DataModel(R.string.PT_TOURIST, R.drawable.ic_sos, R.color.sos4, "800 296296"));
+        arrayListPortugal.add(new DataModel(R.string.CHILDREN, R.drawable.ic_sos, R.color.sos3, "213 433333"));
 
         dictionary.put(Constants.TUNISIA, arrayListTunisia);
         dictionary.put(Constants.ALGERIA, arrayListAlgeria);
@@ -88,11 +97,12 @@ public class Utils {
         dictionary.put(Constants.FRANCE, arrayListFrance);
         dictionary.put(Constants.USA, arrayListUSA_CA_MX);
         dictionary.put(Constants.CANADA, arrayListUSA_CA_MX);
-        dictionary.put(Constants.Mexico, arrayListUSA_CA_MX);
-        dictionary.put(Constants.South_Africa, arrayListSouth_Africa);
-        dictionary.put(Constants.Deustch, arrayListDeustch);
-        dictionary.put(Constants.Italy, arrayListItaly);
-        dictionary.put(Constants.Turkey, arrayListTurkey);
+        dictionary.put(Constants.MEXICO, arrayListUSA_CA_MX);
+        dictionary.put(Constants.SOUTH_AFRICA, arrayListSouth_Africa);
+        dictionary.put(Constants.DEUSTCH, arrayListDeustch);
+        dictionary.put(Constants.ITALY, arrayListItaly);
+        dictionary.put(Constants.TURKEY, arrayListPortugal);
+        dictionary.put(Constants.PORTUGAL, arrayListPortugal);
         return ourInstance;
     }
 

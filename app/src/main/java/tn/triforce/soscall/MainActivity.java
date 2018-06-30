@@ -137,11 +137,12 @@ public class MainActivity extends AppCompatActivity implements RecyclerViewAdapt
         list.add(new Country(Constants.TUNISIA, getResources().getString(R.string.TN)));
         list.add(new Country(Constants.USA, getResources().getString(R.string.US)));
         list.add(new Country(Constants.CANADA, getResources().getString(R.string.CA)));
-        list.add(new Country(Constants.Mexico, getResources().getString(R.string.MX)));
-        list.add(new Country(Constants.South_Africa, getResources().getString(R.string.ZA)));
-        list.add(new Country(Constants.Deustch, getResources().getString(R.string.DE)));
-        list.add(new Country(Constants.Italy, getResources().getString(R.string.IT)));
-        list.add(new Country(Constants.Turkey, getResources().getString(R.string.TR)));
+        list.add(new Country(Constants.MEXICO, getResources().getString(R.string.MX)));
+        list.add(new Country(Constants.SOUTH_AFRICA, getResources().getString(R.string.ZA)));
+        list.add(new Country(Constants.DEUSTCH, getResources().getString(R.string.DE)));
+        list.add(new Country(Constants.ITALY, getResources().getString(R.string.IT)));
+        list.add(new Country(Constants.TURKEY, getResources().getString(R.string.TR)));
+        list.add(new Country(Constants.PORTUGAL, getResources().getString(R.string.PT)));
 
         Collections.sort(list);
 

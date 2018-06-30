@@ -20,9 +20,13 @@
     <string name="FR_EUR">SOS Euro</string>
     <string name="FR_DEAF">SOS Deaf or hard of hearing</string>
     <string name="FR_SDF">SOS Without Shelter</string>
-    <!--Italy-->
+    <!--ITALY-->
     <string name="IT_rifleman">Rifleman</string>
     <string name="IT_children_emergency">Urgences infantiles)</string>
+    <!--PORTUGAL-->
+    <string name="PT_FOREST_FIRE">Forest fire</string>
+    <string name="PT_HELP">Informations</string>
+    <string name="PT_TOURIST">Help for tourists</string>
 
     <string name="text_about_app">Quickly call all emergency numbers in different countries*: Police, Medical, Firefighter...</string>
     <string name="text_share_app">Discover the application &app_name;\t&app_url;</string>
@@ -46,6 +50,7 @@
     <string name="DE">Germany</string>
     <string name="IT">Italy</string>
     <string name="TR">Turkey</string>
+    <string name="PT">Portugal</string>
 
     <!--permission-->
     <string name="permission_msg">Call permission are needed to use app</string>
