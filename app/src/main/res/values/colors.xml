@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#FF4081</color>
+    <color name="colorPrimaryLight">#FFCDD2</color>
+    <color name="fabBackground">#E8E8E8</color>
+
+    <color name="colorPrimaryText">#212121</color>
+    <color name="colorSecondaryText">#757575</color>
+    <color name="icons">#FFFFFF</color>
+    <color name="divider">#BDBDBD</color>
+
+    <color name="sos1">#103685</color>
+    <color name="sos2">#5D7363</color>
+    <color name="sos3">#4E618B</color>
+    <color name="sos4">#EE1C25</color>
+    <color name="sos5">#F44336</color>
+    <color name="sos6">#D32F2F</color>
+    <color name="sos7">#FF9000</color>
+
+</resources>

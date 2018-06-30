@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?><!DOCTYPE resources [<!ENTITY app_name "SOS Call"><!ENTITY app_url "https://play.google.com/store/apps/details?id=com.triforce.sosemergencycall">]>
+
+<resources>
+    <!--<string name="app_name" translatable="false">SOS Emergency Call</string>-->
+    <string name="app_name">SOS Call</string>
+    <string name="samu">EMS</string>
+    <string name="rescue">Rescue</string>
+    <string name="protectionCivile">Civil protection</string>
+    <string name="CHILDREN">Child abuse</string>
+    <!--Tunisia-->
+    <string name="TN_contreTerrorisme">Suspicious activity</string>
+    <string name="TN_TNG">Tunisian National Guard</string>
+    <!--Algeria-->
+    <string name="DZ_GN">National Gendarmerie</string>
+    <!--Algeria-->
+    <string name="MA_SAMU">Medical and fire rescue</string>
+    <string name="MA_Police">Urban Police</string>
+    <string name="MA_GR">Royal Gendarmerie</string>
+    <!--France-->
+    <string name="FR_EUR">SOS Euro</string>
+    <string name="FR_DEAF">SOS Deaf or hard of hearing</string>
+    <string name="FR_SDF">SOS Without Shelter</string>
+    <!--Italy-->
+    <string name="IT_rifleman">Rifleman</string>
+    <string name="IT_children_emergency">Urgences infantiles)</string>
+
+    <string name="text_about_app">Quickly call all emergency numbers in different countries*: Police, Medical, Firefighter...</string>
+    <string name="text_share_app">Discover the application &app_name;\t&app_url;</string>
+    <string name="text_add_country">* : If your country does not exist in the list, please contact us by clicking on this text</string>
+    <string name="text_add_country_request">&app_name; - Request to add a country</string>
+
+    <string name="contact">Contact us</string>
+    <string name="share">Share</string>
+    <string name="about">About</string>
+    <string name="calling">"Calling: "</string>
+    <string name="cancel">"Cancel"</string>
+
+    <string name="TN">Tunisia</string>
+    <string name="FR">France</string>
+    <string name="DZ">Algeria</string>
+    <string name="MA">Marocco</string>
+    <string name="US">United States</string>
+    <string name="CA">Canada</string>
+    <string name="MX">Mexico</string>
+    <string name="ZA">South Africa</string>
+    <string name="DE">Germany</string>
+    <string name="IT">Italy</string>
+    <string name="TR">Turkey</string>
+
+    <!--permission-->
+    <string name="permission_msg">Call permission are needed to use app</string>
+    <string name="grant_permission">Grant permission</string>
+    <string name="permission_setting">Open Settings</string>
+</resources>
