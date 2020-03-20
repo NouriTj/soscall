@@ -6,14 +6,17 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.provider.Settings;
+import android.support.design.widget.TabLayout;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.view.MenuItemCompat;
+import android.support.v4.view.ViewPager;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.RecyclerView;
 import android.telephony.TelephonyManager;
+import android.text.TextUtils;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -23,59 +26,91 @@ import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.HashMap;
 
 import tn.triforce.soscall.Adapter.CountryListAdapter;
+import tn.triforce.soscall.Adapter.TabAdapter;
 import tn.triforce.soscall.DAO.Country;
 import tn.triforce.soscall.Utils.Constants;
+import tn.triforce.soscall.Utils.SosCallFragment;
 import tn.triforce.soscall.Utils.Utils;
 
 public class MainActivity extends AppCompatActivity implements RecyclerViewAdapter.ItemListener {
 
     private static final int REQUEST_CALL_PHONE = 1;
-    RecyclerView recyclerView;
-    ArrayList<DataModel> arrayList;
+    ArrayList<DataModel> SosNumbers;
     String[] Permissions = new String[]{Manifest.permission.CALL_PHONE};
     Utils utils;
     private String currentCountry;
+    private TabAdapter tabAdapter;
+    private TabLayout tabLayout;
+    private ViewPager viewPager;
+    private SosCallFragment sosCallFragment;
+    private CovidFragment covidFragment;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        setContentView(R.layout.activity_main);
-        recyclerView = (RecyclerView) findViewById(R.id.recyclerView);
-
-        utils = Utils.getInstance();
-        TelephonyManager tm = (TelephonyManager) getSystemService(Context.TELEPHONY_SERVICE);
-        currentCountry = tm.getSimCountryIso();
-        // currentCountry = getResources().getConfiguration().locale.getCountry();
-        setRecyclerView();
-
-
-        /**
-         AutoFitGridLayoutManager that auto fits the cells by the column width defined.
-         **/
-
-        AutoFitGridLayoutManager layoutManager = new AutoFitGridLayoutManager(this, 500);
-        recyclerView.setLayoutManager(layoutManager);
-        setRecyclerView();
-
         if (ActivityCompat.checkSelfPermission(this, Manifest.permission.CALL_PHONE) != PackageManager.PERMISSION_GRANTED) {
             ActivityCompat.requestPermissions(MainActivity.this, Permissions, REQUEST_CALL_PHONE);
-
         }
+
+        setContentView(R.layout.activity_main);
+        viewPager = findViewById(R.id.viewPager);
+        tabLayout = findViewById(R.id.tabLayout);
+        tabAdapter = new TabAdapter(getSupportFragmentManager());
+
+        sosCallFragment = new SosCallFragment();
+        covidFragment = new CovidFragment();
+
+        tabAdapter.addFragment(sosCallFragment, "SOS");
+        tabAdapter.addFragment(covidFragment, "COVID-19");
+        viewPager.setAdapter(tabAdapter);
+        tabLayout.setupWithViewPager(viewPager);
+
+        utils = Utils.getInstance();
+
+        try{
+            try{
+                TelephonyManager tm = (TelephonyManager) getSystemService(Context.TELEPHONY_SERVICE);
+                currentCountry = tm.getSimCountryIso();
+            }catch (Exception e){ }
+
+            if(currentCountry == null || currentCountry.length() != 2) {
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+                    currentCountry = getResources().getConfiguration().getLocales().get(0).getCountry();
+                } else {
+                    currentCountry = getResources().getConfiguration().locale.getCountry();
+                }
+            }
+
+            currentCountry = currentCountry.toUpperCase();
+        }catch (Exception e){
+            currentCountry = Constants.TUNISIA;
+        }
+
+        refreshRecyclerViews();
     }
 
-    private void setRecyclerView() {
-        if (utils.dictionary.containsKey(currentCountry))
-            arrayList = (ArrayList<DataModel>) utils.dictionary.get(currentCountry);
-        else {
-            currentCountry = Constants.TUNISIA;
-            arrayList = (ArrayList<DataModel>) utils.dictionary.get(currentCountry);
-        }
+    public void refreshRecyclerViews() {
 
-        RecyclerViewAdapter adapter = new RecyclerViewAdapter(this, arrayList, this);
-        recyclerView.setAdapter(adapter);
+        if(sosCallFragment.recyclerView != null && covidFragment.recyclerView != null){
+
+            if (currentCountry == null || TextUtils.isEmpty (currentCountry) || !utils.dictionary.containsKey(currentCountry)) {
+                currentCountry = Constants.TUNISIA;
+            }
+
+            HashMap countryNumbers = (HashMap)utils.dictionary.get(currentCountry);
+
+            ArrayList<DataModel> sosNumbers = (ArrayList<DataModel>) countryNumbers.get( Constants.SOS_Key);
+            RecyclerViewAdapter adapterSosNumbers = new RecyclerViewAdapter(this, sosNumbers, this);
+            sosCallFragment.recyclerView.setAdapter(adapterSosNumbers);
+
+            ArrayList<DataModel> covidNumbers = (ArrayList<DataModel>) countryNumbers.get( Constants.COVID_Key);
+            RecyclerViewAdapter adapterCovidNumbers = new RecyclerViewAdapter(this, covidNumbers, this);
+            covidFragment.recyclerView.setAdapter(adapterCovidNumbers);
+        }
     }
 
     @Override
@@ -87,12 +122,10 @@ public class MainActivity extends AppCompatActivity implements RecyclerViewAdapt
         }
         Toast.makeText(getApplicationContext(), getString(R.string.calling) + getString(item.text), Toast.LENGTH_SHORT).show();
 
-        //Intent intent = new Intent(Intent.ACTION_CALL, Uri.parse("tel:" + "+216 27 576 063"));
         Intent intent = new Intent(Intent.ACTION_CALL, Uri.parse("tel:" + item.emergencyNumber));
         intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
 
         startActivity(intent);
-
     }
 
     private void checkRequestedPermission() {
@@ -143,6 +176,10 @@ public class MainActivity extends AppCompatActivity implements RecyclerViewAdapt
         list.add(new Country(Constants.ITALY, getResources().getString(R.string.IT)));
         list.add(new Country(Constants.TURKEY, getResources().getString(R.string.TR)));
         list.add(new Country(Constants.PORTUGAL, getResources().getString(R.string.PT)));
+        list.add(new Country(Constants.REUNION, getResources().getString(R.string.RE)));
+        list.add(new Country(Constants.BELGIUM, getResources().getString(R.string.BE)));
+        list.add(new Country(Constants.ROMANIA, getResources().getString(R.string.RO)));
+        list.add(new Country(Constants.SPAIN, getResources().getString(R.string.ES)));
 
         Collections.sort(list);
 
@@ -161,7 +198,7 @@ public class MainActivity extends AppCompatActivity implements RecyclerViewAdapt
                         Country country = (Country) parent.getItemAtPosition(position);
                         if (country != null) {
                             currentCountry = country.getCode();
-                            setRecyclerView();
+                            refreshRecyclerViews();
                         }
                     }
 

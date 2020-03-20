@@ -27,6 +27,10 @@
     <string name="PT_FOREST_FIRE">Forest fire</string>
     <string name="PT_HELP">Informations</string>
     <string name="PT_TOURIST">Help for tourists</string>
+    <!--BELGIUM-->
+    <string name="BE_POISON">Centre Antipoisons</string>
+    <!--SPAIN-->
+    <string name="ES_Police">Local Police</string>
 
     <string name="text_about_app">Quickly call all emergency numbers in different countries*: Police, Medical, Firefighter...</string>
     <string name="text_share_app">Discover the application &app_name;\t&app_url;</string>
@@ -51,9 +55,29 @@
     <string name="IT">Italy</string>
     <string name="TR">Turkey</string>
     <string name="PT">Portugal</string>
+    <string name="RE">Reunion</string>
+    <string name="BE">Belgium</string>
+    <string name="RO">Romania</string>
+    <string name="ES">Spain</string>
 
     <!--permission-->
     <string name="permission_msg">Call permission are needed to use app</string>
     <string name="grant_permission">Grant permission</string>
     <string name="permission_setting">Open Settings</string>
+
+
+    <!-- COVID-19 -->
+    <string name="covidInfoNumber">Info</string>
+    <string name="covidEmergencyNumber">Emergency</string>
+    <string name="covidEmergencyNumberSouth">Emergency - South</string>
+    <string name="covidEmergencyNumberCenterWest1">Emergency - Midwest n°1</string>
+    <string name="covidEmergencyNumberCenterWest2">Emergency - Midwest n°2</string>
+    <string name="covidEmergencyNumberCenterWest3">Emergency - Midwest n°3</string>
+    <string name="covidEmergencyNumberCenterEast1">Emergency - Center-East n°1</string>
+    <string name="covidEmergencyNumberCenterEast2">Emergency - Centre-East n°2</string>
+    <string name="covidEmergencyNumberCenterEast3">Emergency - Centre-East n°3</string>
+    <string name="covidEmergencyNumberNorthWest">Emergency - North West</string>
+    <string name="covidEmergencyNumberNorthEast1">Emergency - Northeast n°1</string>
+    <string name="covidEmergencyNumberNorthEast2">Emergency - Northeast n°2</string>
+    <string name="covidEmergencyNumberNorthEast3">Emergency - Northeast n°3</string>
 </resources>

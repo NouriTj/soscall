@@ -14,8 +14,10 @@ public class DataModel {
 
     public DataModel(int text, int drawable, int color, String emergencyNumber) {
         this.text = text;
-        this.drawable = drawable;
         this.color = color;
         this.emergencyNumber = emergencyNumber;
+
+        if(drawable != 0)
+            this.drawable = drawable;
     }
 }

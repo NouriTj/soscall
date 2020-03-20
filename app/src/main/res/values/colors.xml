@@ -9,6 +9,7 @@
     <color name="colorPrimaryText">#212121</color>
     <color name="colorSecondaryText">#757575</color>
     <color name="icons">#FFFFFF</color>
+    <color name="white">#FFFFFF</color>
     <color name="divider">#BDBDBD</color>
 
     <color name="sos1">#103685</color>
@@ -18,5 +19,6 @@
     <color name="sos5">#F44336</color>
     <color name="sos6">#D32F2F</color>
     <color name="sos7">#FF9000</color>
+    <color name="sos8Corona">#5bb76a</color>
 
 </resources>

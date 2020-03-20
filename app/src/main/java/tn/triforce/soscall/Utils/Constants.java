@@ -17,6 +17,12 @@ public class Constants {
     public static final String ITALY = "IT";
     public static final String TURKEY = "TR";
     public static final String PORTUGAL = "PT";
+    public static final String REUNION = "RE";
+    public static final String BELGIUM = "BE";
+    public static final String ROMANIA = "RO";
+    public static final String SPAIN = "ES";
+    public static final String SOS_Key = "sos";
+    public static final String COVID_Key = "covid";
 
     public static final String ASSETS_PATH = "file:///android_asset/flags/";
     public static final String[] Email_DEVELOPER = new String[]{"triforce.app@gmail.com"};
